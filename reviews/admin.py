@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Review
+from .models import Book, Review, Cluster
 
 # Register your models here.
 class ReviewAdmin(admin.ModelAdmin):
@@ -9,5 +9,11 @@ class ReviewAdmin(admin.ModelAdmin):
 	search_fields = ['comment']
 
 
+class ClusterAdmin(admin.ModelAdmin):
+	model = Cluster
+	list_display = ['name', 'get_members']
+
+
 admin.site.register(Book)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(Cluster, ClusterAdmin)
